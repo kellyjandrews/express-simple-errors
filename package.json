@@ -1,0 +1,40 @@
+{
+  "name": "express-simple-errors",
+  "version": "0.0.0-development",
+  "description": "Simple error handling middleware for NodeJS",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kellyjandrews/express-simple-errors.git"
+  },
+  "author": "Kelly J Andrews (kelly@kellyjandrews.com)",
+  "keywords": ["express", "errors", "middleware"],
+  "license": "MIT",
+  "engines": {
+    "node": ">=6.9.4"
+  },
+  "release": {
+    "verifyConditions": [
+      "./node_modules/@semantic-release/condition-codeship"
+    ]
+  },
+  "scripts": {
+    "test": "jest --watchAll",
+    "test-once": "jest",
+    "coverage": "jest --coverage",
+    "deploy": "npm run clear-lib && npm run build-lib && npm run semantic-release",
+    "build-lib": "babel src --out-dir lib --ignore src/__tests__/**",
+    "clear-lib": "rm -rf lib",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "devDependencies": {
+    "@semantic-release/condition-codeship": "^1.1.0",
+    "babel-cli": "^6.22.2",
+    "babel-jest": "^18.0.0",
+    "babel-polyfill": "^6.22.0",
+    "babel-preset-es2015": "^6.22.0",
+    "eslint": "^2.0.0-rc.1",
+    "jest": "^18.1.0",
+    "semantic-release": "^6.3.2"
+  }
+}

@@ -1,0 +1,11 @@
+exports[`Error classes Returns Bad Request error 1`] = `[Error: Bad Request]`;
+
+exports[`Error classes Returns Conflict error 1`] = `[Error: Conflict]`;
+
+exports[`Error classes Returns Forbidden error 1`] = `[Error: Forbidden]`;
+
+exports[`Error classes Returns Not Found error 1`] = `[Error: Not Found]`;
+
+exports[`Error classes Returns Unauthorized error 1`] = `[Error: Unauthorized]`;
+
+exports[`Error classes Returns Unsupported Media Type error 1`] = `[Error: Unsupported Media Type]`;
