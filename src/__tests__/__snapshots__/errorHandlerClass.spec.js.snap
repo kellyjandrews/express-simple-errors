@@ -1,0 +1,32 @@
+exports[`ErrorHandler Class allows custom handler creation 1`] = `
+Array [
+  Array [
+    "Default",
+    [Function],
+  ],
+  Array [
+    "Test",
+    [Function],
+  ],
+]
+`;
+
+exports[`ErrorHandler Class allows custom handler deletion 1`] = `
+Array [
+  Array [
+    "Default",
+    [Function],
+  ],
+]
+`;
+
+exports[`ErrorHandler Class returns default class 1`] = `
+ErrorHandler {
+  "handlers": Array [
+    Array [
+      "Default",
+      [Function],
+    ],
+  ],
+}
+`;

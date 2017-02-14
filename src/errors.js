@@ -1,4 +1,4 @@
-class BadRequest extends Error {
+export class BadRequest extends Error {
   constructor(msg) {
     super(msg);
     this.message = msg || 'Bad Request';
@@ -6,7 +6,7 @@ class BadRequest extends Error {
     Error.captureStackTrace(this);
   }
 }
-class Unauthorized extends Error {
+export class Unauthorized extends Error {
   constructor(msg) {
     super(msg);
     this.message = msg || 'Unauthorized';
@@ -14,7 +14,7 @@ class Unauthorized extends Error {
     Error.captureStackTrace(this);
   }
 }
-class Forbidden extends Error {
+export class Forbidden extends Error {
   constructor(msg) {
     super(msg);
     this.message = msg || 'Forbidden';
@@ -22,7 +22,7 @@ class Forbidden extends Error {
     Error.captureStackTrace(this);
   }
 }
-class NotFound extends Error {
+export class NotFound extends Error {
   constructor(msg) {
     super(msg);
     this.message = msg || 'Not Found';
@@ -30,7 +30,7 @@ class NotFound extends Error {
     Error.captureStackTrace(this);
   }
 }
-class Conflict extends Error {
+export class Conflict extends Error {
   constructor(msg) {
     super(msg);
     this.message = msg || 'Conflict';
@@ -38,7 +38,7 @@ class Conflict extends Error {
     Error.captureStackTrace(this);
   }
 }
-class UnsupportedMediaType extends Error {
+export class UnsupportedMediaType extends Error {
   constructor(msg) {
     super(msg);
     this.message = msg || 'Unsupported Media Type';
@@ -46,6 +46,3 @@ class UnsupportedMediaType extends Error {
     Error.captureStackTrace(this);
   }
 }
-
-
-export default { BadRequest, Unauthorized, Forbidden, NotFound, Conflict, UnsupportedMediaType };
