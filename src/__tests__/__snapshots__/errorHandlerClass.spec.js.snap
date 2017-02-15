@@ -20,6 +20,18 @@ Array [
 ]
 `;
 
+exports[`ErrorHandler Class allows turning off stack trace from response. 1`] = `
+ErrorHandler {
+  "handlers": Array [
+    Array [
+      "Default",
+      [Function],
+    ],
+  ],
+  "stackTrace": false,
+}
+`;
+
 exports[`ErrorHandler Class returns default class 1`] = `
 ErrorHandler {
   "handlers": Array [
@@ -28,5 +40,6 @@ ErrorHandler {
       [Function],
     ],
   ],
+  "stackTrace": true,
 }
 `;

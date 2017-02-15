@@ -1,17 +1,13 @@
 import {NotFound} from './errors';
 
-const defaultHandler = (err) => ({
-  status: err.name,
-  message: err.message,
-  code: err.code,
-  stackTrace: err.stack
-});
-
-// TODO
-//  Testing
-// Logging Middleware?
-// Hide stack trace from the response
-
+const defaultHandler = (err, stack) => {
+  const res = {};
+  res.status= err.name;
+  res.message= err.message;
+  res.code= err.code;
+  if (stack) res.stackTrace= err.stack;
+  return res;
+};
 
 class Exception extends Error {
   constructor(msg) {
@@ -22,10 +18,17 @@ class Exception extends Error {
   }
 }
 
+// TODO
+// Logging Middleware?
 export default class ErrorHandler {
-  constructor() {
+  constructor(opts) {
     this.handlers = new Map;
     this.handlers.set('Default', defaultHandler);
+    this.stackTrace = true;
+    if (opts && opts.stackTrace !== undefined) {
+      if (typeof opts.stackTrace !== 'boolean') throw new Exception('Option stackTrace must be a boolean.');
+      this.stackTrace = opts.stackTrace;
+    }
   }
 
   setHandler(name, handler) {
@@ -51,7 +54,7 @@ export default class ErrorHandler {
     }
 
     const handler = this.handlers.get(err.name) || this.handlers.get('Default');
-    res.locals.errors = handler(err);
+    res.locals.errors = handler(err, this.stackTrace);
     next(err);
   }
 

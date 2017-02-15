@@ -14,6 +14,16 @@ describe('ErrorHandler Class', () => {
     expect(errors).toMatchSnapshot();
   });
 
+  it('allows turning off stack trace from response.', () => {
+    const errorsStack = new ErrorHandler({stackTrace: false});
+    expect(() => (new ErrorHandler({stackTrace: 123}))).toThrow();
+    expect(() => (new ErrorHandler({stackTrace: '123'}))).toThrow();
+    expect(() => (new ErrorHandler({stackTrace: () => {}}))).toThrow();
+    expect(() => (new ErrorHandler({stackTrace: []}))).toThrow();
+    expect(() => (new ErrorHandler({stackTrace: {}}))).toThrow();
+    expect(errorsStack).toMatchSnapshot();
+  });
+
   it('allows Default handler to be changed', () => {
     errors.setHandler('Default', () => {});
     expect(errors.handlers.get('Default').toString()).toEqual('function () {}');
@@ -29,7 +39,9 @@ describe('ErrorHandler Class', () => {
     expect(() => (errors.setHandler('Test'))).toThrow();
     expect(() => (errors.setHandler('Test', true))).toThrow();
     expect(() => (errors.setHandler('Test', {}))).toThrow();
-    expect(() => (errors.setHandler('Test', 'Non-Function'))).toThrow();
+    expect(() => (errors.setHandler('Test', []))).toThrow();
+    expect(() => (errors.setHandler('Test', 123))).toThrow();
+    expect(() => (errors.setHandler('Test', '123'))).toThrow();
     errors.setHandler('Test', () => {});
     expect(errors.handlers).toMatchSnapshot();
   });
