@@ -1,6 +1,6 @@
 {
   "name": "express-simple-errors",
-  "version": "0.0.0-development",
+  "version": "1.0.0",
   "description": "Simple error handling middleware for NodeJS",
   "main": "lib/index.js",
   "repository": {
